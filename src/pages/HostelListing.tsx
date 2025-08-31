@@ -132,6 +132,15 @@ const HostelListing = () => {
 
     setFilteredHostels(filtered);
   };
+  // ⬇️ ADD THIS FUNCTION
+const handleSearch = (query: string) => {
+  const results = hostels.filter((hostel) =>
+    hostel.name.toLowerCase().includes(query.toLowerCase()) ||
+    hostel.location.toLowerCase().includes(query.toLowerCase())
+  );
+  setFilteredHostels(results);
+};
+
 
   const SkeletonCard = () => (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden animate-pulse">
